@@ -1,7 +1,7 @@
 package org.limadeveloper;
 
-public class CombSort extends Sort {
-    public int[] sort(int[] arr, int tam){
+class CombSort extends Sort {
+    int[] sort(int[] arr, int tam){
             int gap = tam;
             double fator_diminuicao = 1.3;
             boolean sorted = false;

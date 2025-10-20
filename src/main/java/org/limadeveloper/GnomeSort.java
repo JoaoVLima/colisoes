@@ -1,7 +1,7 @@
 package org.limadeveloper;
 
-public class GnomeSort extends Sort {
-    public int[] sort(int[] arr, int tam){
+class GnomeSort extends Sort {
+    int[] sort(int[] arr, int tam){
         int i = 0;
         while (i < tam){
             iteracoes++;

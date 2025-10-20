@@ -5,10 +5,10 @@ class Bucket { // pilha
     int[] balde = new int[100];
 }
 
-public class BucketSort extends Sort {
-    public int numero_buckets = 10;
+class BucketSort extends Sort {
+    int numero_buckets = 10;
 
-    public int[] sort(int[] arr, int tam) {
+    int[] sort(int[] arr, int tam) {
         Bucket[] buckets = new Bucket[numero_buckets];
 
         // registra os buckets

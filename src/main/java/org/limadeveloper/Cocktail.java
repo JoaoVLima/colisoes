@@ -1,7 +1,7 @@
 package org.limadeveloper;
 
-public class Cocktail extends Sort {
-    public int[] sort(int[] arr, int tam) {
+class Cocktail extends Sort {
+    int[] sort(int[] arr, int tam) {
         boolean trocou = true;
         int inicio = 0;
         int fim = tam - 1;

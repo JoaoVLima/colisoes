@@ -1,7 +1,7 @@
 package org.limadeveloper;
 
-public class Selectionsort extends Sort {
-    public int[] sort(int[] arr, int tam) {
+class Selectionsort extends Sort {
+    int[] sort(int[] arr, int tam) {
         int tamanho = arr.length;
         for (int i = 0; i < tamanho - 1; i++) {
             int minI = i;
