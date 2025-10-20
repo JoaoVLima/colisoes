@@ -18,5 +18,6 @@ public class Main {
         };
 
         Test test = new Test(algoritmos, vetores);
+        test.test();
     }
 }

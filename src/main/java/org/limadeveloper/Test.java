@@ -3,10 +3,21 @@ package org.limadeveloper;
 import java.util.Arrays;
 
 public class Test {
+    public Sort[] algoritmos;
+    public int[][] vetores;
+    public String[][] resultados;
+
     public Test(Sort[] algoritmos, int[][] vetores) {
-        for (int[] vetor : vetores) {
+        this.vetores = vetores;
+        this.algoritmos = algoritmos;
+        this.resultados = new String[vetores.length][algoritmos.length];
+    }
+
+    public void test() {
+        for (int vetor_index = 0; vetor_index < vetores.length; vetor_index++) {
+            int[] vetor = vetores[vetor_index].clone();
             String resultado = "vetor = ";
-            resultado = sprintf(resultado, vetor);
+            resultado = string_array(resultado, vetor);
             resultado += "\n\n";
 
 
@@ -19,15 +30,17 @@ public class Test {
                 resultado += "trocas = " + algoritmo.trocas + "\n";
                 resultado += "iteracoes = " + algoritmo.iteracoes + "\n";
 
-                resultado = sprintf(resultado, vetor_resultado);
+                resultado = string_array(resultado, vetor_resultado);
                 resultado += "\n\n";
+                algoritmo.reset();
             }
 
             System.out.println(resultado);
         }
     }
 
-    public String sprintf(String resultado, int[] arr) {
+
+    public String string_array(String resultado, int[] arr) {
         resultado += "[";
         for (int i = 0; i < arr.length - 1; i++) {
             resultado += arr[i] + ",";
@@ -36,4 +49,5 @@ public class Test {
         resultado += "]";
         return resultado;
     }
+
 }
