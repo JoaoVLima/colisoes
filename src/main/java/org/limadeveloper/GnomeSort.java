@@ -1,36 +1,20 @@
 package org.limadeveloper;
 
-//void gnomesort(int n, int ar[]) {
-//	int i = 0;
-//
-//	while (i < n) {
-//		if (i == 0 || ar[i-1] ≤ ar[i]) i++;
-//		else {
-//		int tmp = ar[i];
-//		ar[i] = ar[i-1];
-//		ar[--i] = tmp;
-//		}
-//	}
-//}
-
 public class GnomeSort extends Sort {
     public int[] sort(int[] arr, int tam){
-        int trocas=0;
-        for(int i=0;i<tam-1;i++){
-            int minI = i;
-            for(int j=i+1;j<tam-i-1;j++){
-                if(arr[j]<arr[minI]){
-                    minI = j;
-                }
+        int i = 0;
+        while (i < tam){
+            iteracoes++;
+            if (i == 0 || arr[i-1] <= arr[i]){
+                i++;
             }
-            if(minI!=i){
-                int temp = arr[i];
-                arr[i] = arr[minI];
-                arr[minI] = temp;
+            else{
+                int tmp = arr[i];
+                arr[i] = arr[i-1];
+                arr[--i] = tmp;
                 trocas++;
             }
         }
-        System.out.println(trocas);
         return arr;
     }
 }
