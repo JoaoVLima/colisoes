@@ -13,16 +13,12 @@ package org.limadeveloper;
 //	}
 //}
 
-public class GnomeSort {
-    public GnomeSort() {
-        System.out.println(this.getClass().getSimpleName());
-    }
-    public int[] sort(int[] arr){
-        int tamanho = arr.length;
+public class GnomeSort extends Sort {
+    public int[] sort(int[] arr, int tam){
         int trocas=0;
-        for(int i=0;i<tamanho-1;i++){
+        for(int i=0;i<tam-1;i++){
             int minI = i;
-            for(int j=i+1;j<tamanho-i-1;j++){
+            for(int j=i+1;j<tam-i-1;j++){
                 if(arr[j]<arr[minI]){
                     minI = j;
                 }

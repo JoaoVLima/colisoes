@@ -7,27 +7,27 @@ public class Main {
         int[] vetor3 = {99, 85, 73, 60, 50, 40, 35, 30, 25, 20, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6};
 
         Bubblesort bs = new Bubblesort();
-        int[] a = bs.sort(new int[]{3,2,5,1,6,47,47,7});
+        int[] a = bs.sort(new int[]{3,2,5,1,6,47,47,7}, 8);
 
         Main.print(a);
 
         Selectionsort ss = new Selectionsort();
-        int[] b = ss.sort(new int[]{3,2,5,1,6,47,47,7});
+        int[] b = ss.sort(new int[]{3,2,5,1,6,47,47,7}, 8);
 
         Main.print(b);
 
         Cocktail ct = new Cocktail();
-        int[] c = ct.sort(new int[]{3,2,5,1,6,47,47,7});
+        int[] c = ct.sort(new int[]{3,2,5,1,6,47,47,7}, 8);
 
         Main.print(c);
 
         GnomeSort gs = new GnomeSort();
-        int[] d = gs.sort(new int[]{3,2,5,1,6,47,47,7});
+        int[] d = gs.sort(new int[]{3,2,5,1,6,47,47,7}, 8);
 
         Main.print(d);
 
         BucketSort cs = new BucketSort();
-        int[] e = cs.sort(new int[]{3,2,5,1,6,47,47,7});
+        int[] e = cs.sort(new int[]{3,2,5,1,6,47,47,7}, 8);
 
         Main.print(e);
     }

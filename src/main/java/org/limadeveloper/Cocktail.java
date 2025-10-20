@@ -1,15 +1,11 @@
 package org.limadeveloper;
 
-public class Cocktail {
-    public Cocktail() {
-        System.out.println(this.getClass().getSimpleName());
-    }
-    public int[] sort(int[] arr){
-        int tamanho = arr.length;
+public class Cocktail extends Sort {
+    public int[] sort(int[] arr, int tam){
         boolean trocou = true;
         int trocas = 0;
         int inicio = 0;
-        int fim = tamanho-1;
+        int fim = tam-1;
         int temp;
         while(trocou){
             trocou = false;

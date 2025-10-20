@@ -1,10 +1,7 @@
 package org.limadeveloper;
 
-public class Bubblesort {
-    public Bubblesort() {
-        System.out.println(this.getClass().getSimpleName());
-    }
-    public int[] sort(int[] arr){
+public class Bubblesort extends Sort {
+    public int[] sort(int[] arr, int tam){
         int tamanho = arr.length;
         int trocas;
         int sum_trocas = 0;

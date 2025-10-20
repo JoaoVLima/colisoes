@@ -1,10 +1,7 @@
 package org.limadeveloper;
 
-public class Selectionsort {
-    public Selectionsort() {
-        System.out.println(this.getClass().getSimpleName());
-    }
-    public int[] sort(int[] arr){
+public class Selectionsort extends Sort {
+    public int[] sort(int[] arr, int tam){
         int tamanho = arr.length;
         int trocas=0;
         for(int i=0;i<tamanho-1;i++){
