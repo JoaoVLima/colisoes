@@ -7,11 +7,13 @@ class Bucket { // pilha
 
 public class BucketSort extends Sort {
     public int numero_buckets = 10;
+
     public int[] sort(int[] arr, int tam) {
         Bucket[] buckets = new Bucket[numero_buckets];
 
         // registra os buckets
         for (int i = 0; i < numero_buckets; i++) {
+            iteracoes++;
             buckets[i] = new Bucket();
             buckets[i].topo = 0;
         }
@@ -19,7 +21,8 @@ public class BucketSort extends Sort {
 
         for (int i = 0; i < tam; i++) {
             int bucket_index = numero_buckets - 1;
-            while (true) { // de numero_buckets - 1 ate 0
+            while (true) { // de ultimo_bucket ate primeiro_bucket
+                iteracoes++;
                 if (bucket_index < 0)
                     break;
                 if (arr[i] >= bucket_index * 10) { // 10 porque max 100
@@ -35,8 +38,14 @@ public class BucketSort extends Sort {
         // Aqui eu queria fazer recursivo, eu tentei e deu zebra
         // mas na teoria seria possivel, eu so nao consigo entregar no prazo do jeito que eu quero
         for (int i = 0; i < numero_buckets; i++) {
+            iteracoes++;
             if (buckets[i].topo > 0) {
-                buckets[i].balde = new GnomeSort().sort(buckets[i].balde, buckets[i].topo);
+                Sort algoritmoQualquer = new Bubblesort();
+
+                buckets[i].balde = algoritmoQualquer.sort(buckets[i].balde, buckets[i].topo);
+
+                trocas += algoritmoQualquer.trocas;
+                iteracoes += algoritmoQualquer.iteracoes;
             }
         }
 
@@ -44,6 +53,7 @@ public class BucketSort extends Sort {
         int index = 0;
         for (int bucket_index = 0; bucket_index < numero_buckets; bucket_index++) {
             for (int number_index = 0; number_index < buckets[bucket_index].topo; number_index++) {
+                iteracoes++;
                 arr[index] = buckets[bucket_index].balde[number_index];
                 index++;
             }
