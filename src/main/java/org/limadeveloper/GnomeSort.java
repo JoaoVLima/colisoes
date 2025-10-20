@@ -13,7 +13,7 @@ package org.limadeveloper;
 //	}
 //}
 
-public class GnomeSort implements Sort {
+public class GnomeSort extends Sort {
     public int[] sort(int[] arr, int tam){
         int trocas=0;
         for(int i=0;i<tam-1;i++){
