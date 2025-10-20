@@ -36,7 +36,7 @@ public class BucketSort extends Sort {
         // mas na teoria seria possivel, eu so nao consigo entregar no prazo do jeito que eu quero
         for (int i = 0; i < numero_buckets; i++) {
             if (buckets[i].topo > 0) {
-                buckets[i].balde = new GnomeSort().sort(buckets[i].balde);
+                buckets[i].balde = new GnomeSort().sort(buckets[i].balde, buckets[i].topo);
             }
         }
 
