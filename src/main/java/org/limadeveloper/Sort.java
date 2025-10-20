@@ -1,9 +1,7 @@
 package org.limadeveloper;
 
-public abstract class Sort {
-    public Sort() {
-        System.out.println(this.getClass().getSimpleName());
-    }
-
-    public abstract int[] sort(int[] arr, int tam);
+public interface Sort {
+    int trocas = 0;
+    int iteracoes = 0;
+    int[] sort(int[] arr, int tam);
 }

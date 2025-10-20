@@ -1,6 +1,6 @@
 package org.limadeveloper;
 
-public class Bubblesort extends Sort {
+public class Bubblesort implements Sort {
     public int[] sort(int[] arr, int tam){
         int tamanho = arr.length;
         int trocas;
