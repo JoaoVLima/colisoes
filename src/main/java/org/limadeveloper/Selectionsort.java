@@ -16,8 +16,6 @@ public class Selectionsort extends Sort {
                 arr[i] = arr[minI];
                 arr[minI] = temp;
                 trocas++;
-            }else{
-                iteracoes++;
             }
         }
         return arr;
