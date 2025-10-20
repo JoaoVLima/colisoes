@@ -11,25 +11,11 @@ public class BucketSort {
         int trocas = 0;
         int numero_max_buckets = 5;
 
-        arr = sort(arr, numero_max_buckets);
-
-        System.out.println(trocas);
-        return arr;
-    }
-
-    private int[] sort(int[] arr, int numero_max_buckets) {
-        int tamanho = arr.length;
-
-        if (tamanho == 1) {
-            return arr;
-        } else if (tamanho < numero_max_buckets) {
-            numero_max_buckets = arr.length;
-        }
-
         // maior e menor numero & valores diferentes de 0
         int min = arr[0];
         int max = arr[0];
         int valores_diferentes_de_0 = 0;
+
         for (int i = 0; i < tamanho; i++) {
             if (arr[i] > max) {
                 max = arr[i];
@@ -44,7 +30,8 @@ public class BucketSort {
 
         if (min == 0 && max == 0) { // vazia
             return new int[]{0};
-        }else if (valores_diferentes_de_0<tamanho) { // tem valor vazio
+        }
+        else if (valores_diferentes_de_0<tamanho) { // tem valor vazio
             int[] novo_arr = new int[valores_diferentes_de_0];
             int index = 0;
             for (int i = 0; i < tamanho; i++) {
@@ -56,8 +43,33 @@ public class BucketSort {
                     break;
                 }
             }
-            return novo_arr;
+            arr = novo_arr;
         }
+        else if (tamanho==2){
+            return new int[]{min,max};
+        }
+
+        if(valores_diferentes_de_0 < numero_max_buckets){
+            numero_max_buckets = valores_diferentes_de_0;
+        }
+
+        arr = sort(arr, min, max, numero_max_buckets);
+
+        System.out.println(trocas);
+        return arr;
+    }
+
+    private int[] sort(int[] arr, int min, int max, int numero_max_buckets) {
+        int tamanho = arr.length;
+
+        if (tamanho == 1) {
+            return arr;
+        }else if(tamanho == 2) {
+            numero_max_buckets = 1;
+        } else if (tamanho < numero_max_buckets) {
+            numero_max_buckets = arr.length;
+        }
+
         int[] bucketSizes = new int[numero_max_buckets];
         int[][] buckets = new int[numero_max_buckets][tamanho];
 
@@ -81,37 +93,23 @@ public class BucketSort {
         }
 
         for (int i = 0; i < numero_max_buckets; i++) {
-            buckets[i] = sort(buckets[i], numero_max_buckets);
+            buckets[i] = sort(buckets[i]);
         }
 
-        valores_diferentes_de_0 = 0;
+        int quantidade = 0;
 
         for(int[] bucket: buckets) {
-            for(int number: bucket) {
-                if(number!=0) {
-                    valores_diferentes_de_0++;
-                }
-            }
+            quantidade += bucket.length;
         }
 
-        int[] resultado = new int[valores_diferentes_de_0];
-        int index = 0;
-
+        int[] result = new int[quantidade];
+        int i = 0;
         for(int[] bucket: buckets) {
             for(int number: bucket) {
-                if(number!=0) {
-                    resultado[index] = number;
-                    index++;
-                }
-                if(index>=valores_diferentes_de_0) {
-                    break;
-                }
-            }
-            if(index>=valores_diferentes_de_0) {
-                break;
+                result[i] = number;
             }
         }
 
-        return resultado;
+        return result;
     }
 }
